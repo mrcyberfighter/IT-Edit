@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>It-edit by mrcyberfighter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">It-edit</h1>
+      <h2 class="project-tagline">It-Edit: an integrated terminal programming text-editor with many functionalities like a manpage reader, a documentation registering with direct accessing mechanism and many others settings and features.</h2>
+      <a href="https://github.com/mrcyberfighter/IT-Edit" class="btn">View on GitHub</a>
+      <a href="https://github.com/mrcyberfighter/IT-Edit/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/mrcyberfighter/IT-Edit/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="it-edit-integrated-terminal-editor" class="anchor" href="#it-edit-integrated-terminal-editor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>it-edit (Integrated Terminal Editor)</h1>
+
+<table>
+<thead>
+<tr>
+<th>:informations:</th>
+<th>SDL2_gfxutils</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:program:</td>
+<td><strong>it-edit</strong></td>
+</tr>
+<tr>
+<td>:version:</td>
+<td><strong>2.0</strong></td>
+</tr>
+<tr>
+<td>:author:</td>
+<td><strong>Brüggemann Eddie</strong></td>
+</tr>
+<tr>
+<td>:contact:</td>
+<td><a href="mailto:mrcyberfighter@gmail.com">mrcyberfighter@gmail.com</a></td>
+</tr>
+<tr>
+<td>:license:</td>
+<td><strong>GPLv3</strong></td>
+</tr>
+<tr>
+<td>:website:</td>
+<td><a href="http://www.open-source-projects.net/IT-Edit/IT-Edit_presentation.html">Official website from it-edit</a></td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="motivation-for-writing-it-edit" class="anchor" href="#motivation-for-writing-it-edit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Motivation for writing it-edit</h2>
+
+<p>They are 2 sort of programmers in their habits of writing programs:</p>
+
+<ul>
+<li><p>They which use an IDE with full integrated functionalities.</p></li>
+<li>
+<p>They which use an text editor to write their programs and a terminal to compile, debug or launch them and some other tools separately.</p>
+
+<p>Because I'am an programmer from the second category and because I remark that I often use an additional other tools.</p>
+
+<p>I decide to write my own text editor program which provide me all the functionalities that i need to get a development environment fully adapt to my requirement.</p>
+
+<p>Which consist of a terminal integrated text-editor with which you can access all you require directly from the editor: documentation, GUI applications, ...</p>
+</li>
+</ul>
+
+<h2>
+<a id="it-edit-presentation" class="anchor" href="#it-edit-presentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>it-edit presentation</h2>
+
+<p><strong>it-edit</strong> provide a text editor with <code>syntax highlight</code>, <code>line numbering</code> and with the basics text editing functionalities:</p>
+
+<ul>
+<li><p>Cut, Copy and Paste.</p></li>
+<li><p>Duplicate a line or the selected text.</p></li>
+<li><p>Undo/Redo functionalities.</p></li>
+<li><p>Search and replace functionalities.</p></li>
+<li><p>Jump to the given line number.</p></li>
+<li><p>Enable | Disable the use of tabs.</p></li>
+</ul>
+
+<p>And an files managing interface for:</p>
+
+<ul>
+<li><p>Open a new empty file.</p></li>
+<li><p>Open the file you want.</p></li>
+<li><p>Open an recent file.</p></li>
+<li><p>Save the editor content.</p></li>
+<li><p>Save the editor content as the filename you want.</p></li>
+<li><p>Save all open files.</p></li>
+<li><p>Reload file.</p></li>
+<li><p>File informations.</p></li>
+</ul>
+
+<p><strong>it-edit</strong> provide <strong>terminals in the same window as the editor</strong>, as a sidebar, which can easily <strong>shown</strong>, <strong>hidden</strong> and <strong>resized</strong>.</p>
+
+<p>You can <strong>add</strong> and <strong>remove</strong> as many terminals as you want to the sidebar...</p>
+
+<p><strong>it-edit</strong> provide a <strong>big terminal</strong> occupying the full interface, <strong>dividable</strong> into <strong>4 resizable terminals</strong>, to which you can <strong>easy toggle</strong> from the main window.</p>
+
+<p>For executing commands like compilation, debugging, and so soon directly from the editor.</p>
+
+<p>I intend to implement an <code>manpages reading interface</code>, in an <strong>toplevel terminal window</strong> (so it can be <strong>resize</strong>, <strong>minimize</strong>, <strong>maximize</strong> and <strong>closed</strong>),</p>
+
+<p>but i remark by implementing it that i restrict the command to execute the <code>man [section] page</code> command.</p>
+
+<p>So i decide to provide the same functionality but without restricting it to the manpage displaying, to expand it to execute any command you want in an toplevel terminal.</p>
+
+<p>It result in a functionality to execute a command in a toplevel terminal, which can be resize, minimize, maximize and close.</p>
+
+<p>After the execution of the command the toplevel terminal is yours and can continue to enter commands...</p>
+
+<p>I intend to implement launching of <code>registered offline HTML documentation</code> in a toplevel window,</p>
+
+<p>but i remark by implementing it that i restrict it to offline <strong>HTML</strong> pages.</p>
+
+<p>So i decide to provide the same functionality with registering any file you like.</p>
+
+<p>The registered files are launched with the default program for this filetype.</p>
+
+<p>After registering the files, you can easy launch it and access them all directly from <strong>it-edit</strong>.</p>
+
+<p>I want to launch necessary <strong>GUI tools</strong> directly from the editor.</p>
+
+<p>So <strong>it-edit</strong> permit to register the application you want to get direct access to it from your editor.</p>
+
+<p>Like: A <strong>GUI</strong> <code>diff tool</code>, A <strong>GUI</strong> <code>debugger</code>, a smart <code>python interpreter</code>, a <code>calculator</code>, a <code>color picker</code>, a <code>dictionary</code>, and so soon...</p>
+
+<h2>
+<a id="files" class="anchor" href="#files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Files</h2>
+
+<p>You can start <strong>it-edit</strong> from the command line with a space delimited files list, as argument, which will be opened in the editor at start.</p>
+
+<p>Use the <strong>it-edit</strong> icon to open <strong>it-edit</strong> or with your files-manager you can select files to open with <strong>it-edit</strong>.</p>
+
+<h3>
+<a id="to-know-for-files-managing" class="anchor" href="#to-know-for-files-managing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>To know for files managing:</h3>
+
+<ul>
+<li><p><strong>Open a new empty file</strong> use the menu item, the button or the shortcut: <strong>Ctrl + n</strong>.</p></li>
+<li><p><strong>Open a file</strong> by selecting it with a file selector, use the menu item, the button or the shortcut: <strong>Ctrl + o</strong>.</p></li>
+<li><p>You can <strong>open a recent file</strong> by selecting it in the list from the menu item.</p></li>
+<li><p><strong>Save</strong> the current editor content use the menu item, the button or the shortcut: <strong>Ctrl + s</strong>.</p></li>
+<li><p><strong>Save all</strong> open files use the menu item, the button or the shortcut: <strong>Ctrl + Maj + S</strong>.</p></li>
+<li><p><strong>Reload file</strong> will reload the last saved version from the file in the editor, use the menu item or the shortcut <strong>Ctrl + R</strong>.</p></li>
+<li><p><strong>File informations</strong> will display informations, which you can edit, about the current file, use the menu item or the shortcut <strong>Ctrl + I</strong>.</p></li>
+</ul>
+
+<p>You can easily navigate into your open files by using the pop-up menu or by clicking on the file tab.</p>
+
+<p>You can reorder your open files as wanted by drag and drop the files tabs.</p>
+
+<h2>
+<a id="edition" class="anchor" href="#edition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Edition</h2>
+
+<h3>
+<a id="to-know-about-edition" class="anchor" href="#to-know-about-edition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>To know about edition:</h3>
+
+<ul>
+<li><p><strong>Undo</strong> use the contextual menu or the shortcut: <strong>Ctrl + Z</strong>.</p></li>
+<li>
+<p><strong>Redo</strong> use the contextual menu or the shortcut: <strong>Ctrl + Maj + Z</strong>.</p>
+
+<p>:note: The menu items from <em>Undo</em> and <em>Redo</em> does not work well but the shortcuts and and the contextual menu yes.</p>
+</li>
+<li><p><strong>Cut</strong> use the contextual menu, the menu item, the button or the shortcut: <strong>Ctrl + X</strong>.</p></li>
+<li><p><strong>Copy</strong> use the contextual menu, the menu item, the button or the shortcut: <strong>Ctrl + C</strong>.</p></li>
+<li><p><strong>Paste</strong> use the contextual menu, the menu item, the button or the shortcut: <strong>Ctrl + V</strong>.    </p></li>
+<li><p><strong>Duplicate</strong> the selection or the line at cursor position, use the menu item, the button or the shortcut: <strong>Ctrl + D</strong>.</p></li>
+<li><p><strong>Use space instead of tabs</strong>: for switching between tab use or not, use the menu item or the shortcut: <strong>Ctrl + P</strong>.</p></li>
+</ul>
+
+<h2>
+<a id="editor" class="anchor" href="#editor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Editor</h2>
+
+<ul>
+<li>
+<p><strong>Go to line number</strong> use the menu item, the button or the shortcut: <strong>Ctrl + g</strong>.</p>
+
+<p>Enter an valid line number and press <strong>Enter</strong> or the <strong>Apply</strong> button to move the editor to the wanted line, which will be highlight.</p>
+</li>
+<li>
+<p><strong>Find and replace</strong> functionality.</p>
+
+<p>You can <em>show</em> | <em>hide</em> the find and replace bar by using the toggle button.</p>
+
+<p>The search and replace bar has following functionalities:</p>
+
+<ul>
+<li><p><strong>Search</strong> button: this will highlight all the matching occurrences from the search term and moving the editor to the first occurrence position.</p></li>
+<li>
+<p><strong>Next</strong> button: highlight the next matching occurrence from the search term.</p>
+
+<p>Pressing <strong>Enter</strong> when the search entry field has the focus has the same effect.</p>
+
+<p>The search will start at selection or at the cursor position.</p>
+
+<p>If you select some text with the mouse and using the shortcut <strong>Ctrl + f</strong>.</p>
+
+<p>The search field will toggle on if not visible and will contains the selected text as search term.</p>
+
+<p>:note: You can use the shortcut <strong>Ctrl + +</strong> instead of the button (Use the keypad).</p>
+</li>
+<li>
+<p><strong>Previous</strong> button: highlight the previous matching occurrence from the search term.</p>
+
+<p>The search will start at selection or at the cursor position.</p>
+
+<p>If you select some text with the mouse and use the shortcut <strong>Ctrl + f</strong>.</p>
+
+<p>The search field will toggle on if not visible and will contains the selected text as search term.</p>
+
+<p>:note: You can use the shortcut <strong>Ctrl + -</strong> instead of the button (Use the keypad).</p>
+</li>
+<li>
+<p><strong>Replace</strong> button: replace the current matching occurrence, which is highlight, with the content of the replace field.</p>
+
+<p>:note: You can use the shortcut <strong>Ctrl + Enter</strong> instead of the button  (Use the keypad).</p>
+</li>
+<li>
+<p><strong>Replace all</strong> button: replace all the matching occurrence in the current file.</p>
+
+<p>:note: You can use the shortcut <strong>Ctrl + Maj + Enter</strong> instead of the button  (Use the keypad).</p>
+</li>
+<li>
+<p><strong>Mode</strong>: You can select how your search term(s) will be interpreted.</p>
+
+<ul>
+<li><p><strong>Raw text</strong>: all search terms matching.</p></li>
+<li><p><strong>Word boundary</strong>: The search term must be a complete word, not a part but an variable with separators like underscores or points will work too.</p></li>
+<li><p><strong>Regular expression</strong>: <em>Perl</em> compatible regular expression (REGEX).</p></li>
+</ul>
+</li>
+<li>
+<p><strong>Close</strong> button: hide the search and replace bar and clear the highlight.                  </p>
+
+<p>:note: if you select some text with the mouse and use the <strong>Ctrl + f</strong> shortcut.</p>
+
+<ul>
+<li><p>The search and replace bar will be show.</p></li>
+<li><p>The search field will be filled with your selection.</p></li>
+<li><p>The search will begin at your selection position if you hit the <strong>Next</strong> or <strong>Previous</strong> button.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="actions" class="anchor" href="#actions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Actions</h2>
+
+<ul>
+<li>
+<p><strong>Command execution</strong>: use the menu item, the <strong>Cmd</strong> button or the shortcut: <strong>Ctrl + e</strong>.</p>
+
+<p>This will display a little toplevel in which you can enter a command.</p>
+
+<p>Then press the <strong>Enter</strong> key or the <strong>Apply</strong> button to execute the command in a terminal include in a toplevel window (so you can resize, minimize, maximize and close the window).</p>
+
+<p>After the execution from the command the toplevel terminal is yours so can continue to enter commands and use it.</p>
+</li>
+<li>
+<p><strong>Sidebar Terminals adding</strong>: You can add some terminals, 2 per item, to the sidebar, reorder them, and remove it.</p>
+
+<p>Use the menu item or the shortcut <strong>Ctrl + Maj + T</strong>.    </p>
+</li>
+<li>
+<p><strong>Big terminal(s) switch</strong>: You can switch between a very big terminal and a very big terminal divided into 4 terminals.</p>
+
+<p>Use the menu item or the shortcut <strong>Ctrl + Maj + B</strong>.</p>
+</li>
+<li>
+<p><strong>File Handler</strong>: use the menu item or the shortcut: <strong>Ctrl + H</strong>.</p>
+
+<p>For using this features you must register files from the <strong>Files handler manager</strong> tab interface reachable through the settings-&gt;Configure program menu item.</p>
+
+<p>For registering a file you must give it a title which will appears as the button text in the <strong>File Handler</strong> window and selecting the corresponding file.</p>
+
+<p>Then when you press the button in the <strong>File Handler</strong> window, the file will be launched with the default application for this filetype.</p>
+
+<p>This features was thinking for fast access to offline HTML documentation but it's being expanded to any filetype, so you can consult pdf documentation too, but not only, this features can be use for any use you want.</p>
+
+<p>The registered files can be removed from the <strong>File handler</strong> list through the same interface with which you add it.</p>
+</li>
+<li>
+<p><strong>Application launcher</strong>: use the menu item or the shortcut: <strong>Ctrl + A</strong>.</p>
+
+<p>This will display an application chooser. By selecting an application you will launch it.</p>
+</li>
+</ul>
+
+<h2>
+<a id="applications" class="anchor" href="#applications" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Applications</h2>
+
+<p>You can set different GUI tools launcher from <strong>it-edit</strong>:</p>
+
+<p>Under the section <strong>programming</strong> you can set:</p>
+
+<ul>
+<li><p>A <strong>GUI</strong> diff tool.</p></li>
+<li><p>A <strong>GUI</strong> debugger.</p></li>
+<li><p>A <strong>GUI</strong> smart python interpreter.</p></li>
+<li><p>A user interface designer.</p></li>
+<li><p>devhelp.</p></li>
+</ul>
+
+<p>Under the <strong>utilities</strong> section you can set:</p>
+
+<ul>
+<li><p>A <strong>GUI</strong> calculator.</p></li>
+<li><p>A <strong>GUI</strong> color picker.</p></li>
+<li><p>A <strong>GUI</strong> dictionary.</p></li>
+<li><p>A file manager.</p></li>
+<li><p>A <strong>GUI</strong> note taker.</p></li>
+<li><p>A browser.</p></li>
+</ul>
+
+<p>Else you can register the application you want under the <strong>others</strong> section.</p>
+
+<p>This is very practice to launch an application directly from <strong>it-edit</strong> instead of:</p>
+
+<ol>
+<li><p>Minimize <strong>it-edit</strong></p></li>
+<li><p>Go to the menu.</p></li>
+<li><p>Find the application you want to launch.</p></li>
+<li><p>Launch your application.   </p></li>
+</ol>
+
+<h2>
+<a id="view" class="anchor" href="#view" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>View</h2>
+
+<ul>
+<li><p><strong>Big term</strong> <em>Show</em> | <em>hide</em>: use the menu item, the toggle button or the shortcut: <strong>Ctrl + B</strong>.</p></li>
+<li><p><strong>Terminals</strong> <em>show</em> | <em>hide</em>: use the menu item, the toggle button or the shortcut: <strong>Ctrl + T</strong>.</p></li>
+<li><p><strong>Button bar</strong> <em>show</em> | <em>hide</em>: use the menu item.</p></li>
+<li><p><strong>Fullscreen</strong> toggle: use the menu item.</p></li>
+</ul>
+
+<h2>
+<a id="settings" class="anchor" href="#settings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Settings</h2>
+
+<h3>
+<a id="syntax-highlight-use-the-menu-item" class="anchor" href="#syntax-highlight-use-the-menu-item" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax highlight: use the menu item.</h3>
+
+<p>To set the syntax highlight on, on the current edited text from the supported language.</p>
+
+<h3>
+<a id="editor-schemes-use-the-menu-item" class="anchor" href="#editor-schemes-use-the-menu-item" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Editor schemes: use the menu item.</h3>
+
+<p>To set the appearance from the text editor.</p>
+
+<p>Currently they are 13 different schemes available in <strong>it-edit</strong>:</p>
+
+<ul>
+<li><p>build</p></li>
+<li><p>Classic.</p></li>
+<li><p>Cobalt.</p></li>
+<li><p>emacs.</p></li>
+<li><p>Kate (default).</p></li>
+<li><p>matrix</p></li>
+<li><p>Oblivion.</p></li>
+<li><p>slate.</p></li>
+<li><p>Solarized-dark.</p></li>
+<li><p>Solarized-light.</p></li>
+<li><p>Tango.            </p></li>
+<li><p>turbo.</p></li>
+<li>
+<p>vsdark.</p>
+
+<p>Each time you change the scheme your choice is registered so that you don't have to change it every time you start <strong>it-edit</strong>.</p>
+</li>
+</ul>
+
+<h3>
+<a id="configure-program-use-the-menu-item" class="anchor" href="#configure-program-use-the-menu-item" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configure program: use the menu item.</h3>
+
+<p>To access to the program configuration window which is divide into 3 part:</p>
+
+<h4>
+<a id="editor-settings" class="anchor" href="#editor-settings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Editor settings:</h4>
+
+<ul>
+<li><p>Font (Monospace 10 per default).</p></li>
+<li><p>Display lines numbers (Enabled per default).</p></li>
+<li><p>Display TABS characters (Enabled per default).</p></li>
+<li><p>Use auto-indent (Enabled per default).</p></li>
+<li><p>Indent width (2 per default).</p></li>
+<li><p>Use spaces instead of TABS (Enabled per default).</p></li>
+<li><p>TABS width (2 per default).</p></li>
+<li><p>Create a backup file by saving (Enabled per default).</p></li>
+<li><p>Remove trailing space at saving (Enabled per default).</p></li>
+</ul>
+
+<h4>
+<a id="terminal-settings" class="anchor" href="#terminal-settings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Terminal settings:</h4>
+
+<h5>
+<a id="appearance" class="anchor" href="#appearance" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Appearance:</h5>
+
+<ul>
+<li><p>Font (Monospace 11 per default).</p></li>
+<li><p>Cursor shape (Block per default).</p></li>
+<li><p>Background color (Black per default).</p></li>
+<li><p>Foreground color (White per default).</p></li>
+<li><p>Use an image as background (Enabled per default).</p></li>
+<li><p>Use a personal texture (Disabled per default).</p></li>
+<li><p>Use a texture as background (Disabled per default).</p></li>
+<li><p>20 textures available.</p></li>
+<li><p>Use a personal background image (Disabled per default).</p></li>
+</ul>
+
+<h5>
+<a id="settings-1" class="anchor" href="#settings-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Settings:</h5>
+
+<ul>
+<li><p>User shell (Default to your default shell).</p></li>
+<li><p>Start directory when you launch a terminal.</p></li>
+<li>
+<p>Select by word char (Default to: <code>-A-Za-z0-9,./?%&amp;#:_=+@~</code>) .</p>
+
+<p>When the user double-clicks to start selection, the terminal will extend the selection on word boundaries.</p>
+
+<p>It will treat characters included in spec as parts of words, and all other characters as word separators.</p>
+
+<p>Ranges of characters can be specified by separating them with a hyphen.</p>
+</li>
+<li>
+<p>Scroll back lines.</p>
+
+<ul>
+<li><p>Unlimited (Default).</p></li>
+<li><p>Settable to the value you want.</p></li>
+</ul>
+</li>
+<li>
+<p>Scrolling.</p>
+
+<ul>
+<li>
+<p>Scroll on output (Disabled per default).</p>
+
+<p>Controls whether or not the terminal will forcibly scroll to the bottom of the terminal when the new data is received.</p>
+</li>
+<li>
+<p>Scroll on keystroke (Enabled per default).</p>
+
+<p>Controls whether or not the terminal will forcibly scroll to the bottom of the terminal when the user presses a key.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Erase binding.</p>
+
+<ul>
+<li><p>Backspace key binding (Default to automatic).</p></li>
+<li><p>Delete key binding (Default to automatic).</p></li>
+</ul>
+</li>
+</ul>
+
+<h3>
+<a id="file-handler-manager" class="anchor" href="#file-handler-manager" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>File handler manager:</h3>
+
+<p>Here you can add and remove files for the <strong>File handler</strong> feature.</p>
+
+<h3>
+<a id="applications-1" class="anchor" href="#applications-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Applications:</h3>
+
+<p>Here you can define shortcuts for the applications you want.  </p>
+
+<h3>
+<a id="settings-2" class="anchor" href="#settings-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Settings:</h3>
+
+<ul>
+<li>Define the ratio main-interface and sidebar in form of a floating-point value between 0.0-1.0,</li>
+</ul>
+
+<p>representing the surface the sidebar will cover and so the width of the sidebar terminals.</p>
+
+<ul>
+<li><p>Show | hide the sidebar terminals at start.</p></li>
+<li><p>Show | hide the big terminal at start.</p></li>
+<li><p>Choosing to divide the big terminal in 4 at start.</p></li>
+<li><p>Toggle to fullscreen at start.</p></li>
+<li><p>Launch a command in the terminals at start.</p></li>
+<li><p>Set it-edit as your default editor or reset the settings. </p></li>
+</ul>
+
+<h2>
+<a id="supported-languages" class="anchor" href="#supported-languages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Supported languages</h2>
+
+<ul>
+<li>
+<p><strong>ActionScript</strong> (text/x-actionscript)</p>
+
+<ul>
+<li>
+<em>\</em>.as*</li>
+</ul>
+</li>
+<li>
+<p><strong>Ada</strong> (text/x-ada, text/x-adasrc)</p>
+
+<ul>
+<li><p><em>\</em>.adb*</p></li>
+<li><p><em>\</em>.ads*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>ASP</strong> (text/x-asp, application/x-asp, application/x-asap)</p>
+
+<ul>
+<li>
+<em>\</em>.asp*</li>
+</ul>
+</li>
+<li>
+<p><strong>Automake</strong></p>
+
+<ul>
+<li><p><em>Makefile.am</em></p></li>
+<li><p><em>GNUmakefile.am</em></p></li>
+</ul>
+</li>
+<li>
+<p><strong>awk</strong> (application/x-awk)</p>
+
+<ul>
+<li>
+<em>\</em>.awk*</li>
+</ul>
+</li>
+<li>
+<p><strong>BennuGD</strong></p>
+
+<ul>
+<li>
+<em>\</em>.prg*</li>
+</ul>
+</li>
+<li>
+<p><strong>BibTeX</strong> (text/x-bibtex)</p>
+
+<ul>
+<li>
+<em>\</em>.bib*</li>
+</ul>
+</li>
+<li>
+<p><strong>Bluespec SystemVerilog</strong></p>
+
+<ul>
+<li>
+<em>\</em>.bsv*</li>
+</ul>
+</li>
+<li>
+<p><strong>Boo</strong> (text/x-boo)</p>
+
+<ul>
+<li>
+<em>\</em>.boo*</li>
+</ul>
+</li>
+<li>
+<p><strong>C</strong> (text/x-c, text/x-csrc, image/x-xpixmap)</p>
+
+<ul>
+<li>
+<em>\</em>.c*</li>
+</ul>
+</li>
+<li>
+<p><strong>C#</strong> (text/x-csharpsrc, text/x-csharp)</p>
+
+<ul>
+<li>
+<em>\</em>.cs*</li>
+</ul>
+</li>
+<li>
+<p><strong>C++</strong> (text/x-c++, text/x-cpp, text/x-c++src)</p>
+
+<ul>
+<li><p><em>\</em>.cpp*</p></li>
+<li><p><em>\</em>.cxx*</p></li>
+<li><p><em>\</em>.cc*</p></li>
+<li><p><em>\</em>.C*</p></li>
+<li><p><em>\</em>.c++*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>C/C++/ObjC Header</strong> (text/x-chdr, text/x-c++hdr)</p>
+
+<ul>
+<li><p><em>\</em>.hh*</p></li>
+<li><p><em>\</em>.hp*</p></li>
+<li><p><em>\</em>.hpp*</p></li>
+<li><p><em>\</em>.h++*</p></li>
+<li><p><em>\</em>.h*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>CG Shader Language</strong></p>
+
+<ul>
+<li>
+<em>\</em>.cg*</li>
+</ul>
+</li>
+<li>
+<p><strong>ChangeLog</strong> (text/x-changelog)</p>
+
+<ul>
+<li>
+<em>ChangeLog\</em>*</li>
+</ul>
+</li>
+<li>
+<p><strong>CMake</strong></p>
+
+<ul>
+<li><p><em>CMakeLists.txt</em></p></li>
+<li><p><em>\</em>.cmake*</p></li>
+<li><p><em>\</em>.cmake.in*</p></li>
+<li><p><em>\</em>.ctest*</p></li>
+<li><p><em>\</em>.ctest.in*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>Cobol</strong></p>
+
+<ul>
+<li><p><em>\</em>.cbl*</p></li>
+<li><p><em>\</em>.cob*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>CSS</strong> (text/css)</p>
+
+<ul>
+<li><p><em>\</em>.css*</p></li>
+<li><p><em>\</em>.CSSL*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>CUDA</strong></p>
+
+<ul>
+<li><p><em>\</em>.cu*</p></li>
+<li><p><em>\</em>.cuh*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>D</strong> (text/x-dsrc)</p>
+
+<ul>
+<li>
+<em>\</em>.d*</li>
+</ul>
+</li>
+<li><p><strong>Defaults</strong></p></li>
+<li>
+<p><strong>.desktop</strong> (application/x-gnome-app-info, application/x-desktop)</p>
+
+<ul>
+<li><p><em>\</em>.desktop*</p></li>
+<li><p><em>\</em>.kdelnk*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>Diff</strong> (text/x-diff, text/x-patch)</p>
+
+<ul>
+<li><p><em>\</em>.diff*</p></li>
+<li><p><em>\</em>.patch*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>DocBook</strong> (application/docbook+xml)</p>
+
+<ul>
+<li>
+<em>\</em>.docbook*</li>
+</ul>
+</li>
+<li>
+<p><strong>DOS Batch</strong></p>
+
+<ul>
+<li><p><em>\</em>.bat*</p></li>
+<li><p><em>\</em>.cmd*</p></li>
+<li><p><em>\</em>.sys*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>DPatch</strong> (text/x-dpatch)</p>
+
+<ul>
+<li>
+<em>\</em>.dpatch*</li>
+</ul>
+</li>
+<li>
+<p><strong>DTD</strong> (text/x-dtd)</p>
+
+<ul>
+<li>
+<em>\</em>.dtd*</li>
+</ul>
+</li>
+<li>
+<p><strong>Eiffel</strong> (text/x-eiffel)</p>
+
+<ul>
+<li><p><em>\</em>.e*</p></li>
+<li><p><em>\</em>.eif*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>Erlang</strong> (text/x-erlang)</p>
+
+<ul>
+<li><p><em>\</em>.erl*</p></li>
+<li><p><em>\</em>.hrl*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>F#</strong> (text/x-fsharp)</p>
+
+<ul>
+<li>
+<em>\</em>.fs*</li>
+</ul>
+</li>
+<li>
+<p><strong>FCL</strong></p>
+
+<ul>
+<li>
+<em>\</em>.fcl*</li>
+</ul>
+</li>
+<li>
+<p><strong>Forth</strong> (text/x-forth)</p>
+
+<ul>
+<li><p><em>\</em>.frt*</p></li>
+<li><p><em>\</em>.fs*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>Fortran 95</strong> (text/x-fortran)</p>
+
+<ul>
+<li><p><em>\</em>.f*</p></li>
+<li><p><em>\</em>.f90*</p></li>
+<li><p><em>\</em>.f95*</p></li>
+<li><p><em>\</em>.for*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>GAP</strong> (text/x-gap)</p>
+
+<ul>
+<li><p><em>\</em>.g*</p></li>
+<li><p><em>\</em>.gd*</p></li>
+<li><p><em>\</em>.gi*</p></li>
+<li><p><em>\</em>.gap*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>GDB Log</strong></p>
+
+<ul>
+<li>
+<em>\</em>.gdb*</li>
+</ul>
+</li>
+<li>
+<p><strong>gettext translation</strong> (text/x-po, text/x-pot, text/x-pox, text/x-gettext-translation, text/x-gettext-translation-template)</p>
+
+<ul>
+<li><p><em>\</em>.po*</p></li>
+<li><p><em>\</em>.pot*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>Go</strong></p>
+
+<ul>
+<li>
+<em>\</em>.go*</li>
+</ul>
+</li>
+<li>
+<p><strong>Graphviz Dot</strong> (text/vnd.graphviz)</p>
+
+<ul>
+<li><p><em>\</em>.dot*</p></li>
+<li><p><em>\</em>.gv*</p></li>
+</ul>
+</li>
+<li><p><strong>gtk-doc</strong></p></li>
+<li>
+<p><strong>GtkRC</strong> (text/x-gtkrc)</p>
+
+<ul>
+<li><p><em>gtkrc</em></p></li>
+<li><p><em>.gtkrc</em></p></li>
+<li><p><em>gtkrc-</em>*</p></li>
+<li><p><em>.gtkrc-</em>*</p></li>
+</ul>
+</li>
+<li><p><strong>Haddock</strong></p></li>
+<li>
+<p><strong>Haskell</strong> (text/x-haskell)</p>
+
+<ul>
+<li>
+<em>\</em>.hs*</li>
+</ul>
+</li>
+<li>
+<p><strong>HTML</strong> (text/html)</p>
+
+<ul>
+<li><p><em>\</em>.html*</p></li>
+<li><p><em>\</em>.htm*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>IDL</strong> (text/x-idl)</p>
+
+<ul>
+<li>
+<em>\</em>.idl*</li>
+</ul>
+</li>
+<li>
+<p><strong>IDL-Exelis</strong></p>
+
+<ul>
+<li>
+<em>\</em>.pro*</li>
+</ul>
+</li>
+<li>
+<p><strong>ImageJ</strong></p>
+
+<ul>
+<li>
+<em>\</em>.ijm*</li>
+</ul>
+</li>
+<li>
+<p><strong>.ini</strong> (text/x-ini-file, application/x-ini-file)</p>
+
+<ul>
+<li>
+<em>\</em>.ini*</li>
+</ul>
+</li>
+<li>
+<p><strong>J</strong></p>
+
+<ul>
+<li>
+<em>\</em>.ijs*</li>
+</ul>
+</li>
+<li>
+<p><strong>Java</strong> (text/x-java)</p>
+
+<ul>
+<li>
+<em>\</em>.java*</li>
+</ul>
+</li>
+<li>
+<p><strong>JavaScript</strong> (application/javascript, application/x-javascript, text/x-javascript, text/javascript, text/x-js)</p>
+
+<ul>
+<li><p><em>\</em>.js*</p></li>
+<li><p><em>\</em>.node*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>JSON</strong></p>
+
+<ul>
+<li>
+<em>\</em>.json*</li>
+</ul>
+</li>
+<li>
+<p><strong>Julia</strong></p>
+
+<ul>
+<li>
+<em>\</em>.jl*</li>
+</ul>
+</li>
+<li>
+<p><strong>LaTeX</strong> (text/x-tex)</p>
+
+<ul>
+<li><p><em>\</em>.tex*</p></li>
+<li><p><em>\</em>.ltx*</p></li>
+<li><p><em>\</em>.sty*</p></li>
+<li><p><em>\</em>.cls*</p></li>
+<li><p><em>\</em>.dtx*</p></li>
+<li><p><em>\</em>.ins*</p></li>
+<li><p><em>\</em>.bbl*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>libtool</strong> (text/x-libtool)</p>
+
+<ul>
+<li><p><em>\</em>.la*</p></li>
+<li><p><em>\</em>.lai*</p></li>
+<li><p><em>\</em>.lo*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>Literate Haskell</strong> (text/x-literate-haskell)</p>
+
+<ul>
+<li>
+<em>\</em>.lhs*</li>
+</ul>
+</li>
+<li>
+<p><strong>Lua</strong> (text/x-lua)</p>
+
+<ul>
+<li>
+<em>\</em>.lua*</li>
+</ul>
+</li>
+<li>
+<p><strong>m4</strong> (application/x-m4)</p>
+
+<ul>
+<li><p><em>\</em>.m4*</p></li>
+<li><p><em>configure.ac</em></p></li>
+<li><p><em>configure.in</em></p></li>
+</ul>
+</li>
+<li>
+<p><strong>Makefile</strong> (text/x-makefile)</p>
+
+<ul>
+<li><p><em>[Mm]akefile</em></p></li>
+<li><p><em>GNUmakefile</em></p></li>
+<li><p><em>\</em>.make*</p></li>
+<li><p><em>\</em>.mak*</p></li>
+<li><p><em>\</em>.mk*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>Mallard</strong></p>
+
+<ul>
+<li>
+<em>\</em>.page*</li>
+</ul>
+</li>
+<li>
+<p><strong>Markdown</strong> (text/x-markdown)</p>
+
+<ul>
+<li><p><em>\</em>.markdown*</p></li>
+<li><p><em>\</em>.md*</p></li>
+<li><p><em>\</em>.mkd*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>Matlab</strong> (text/x-octave, text/x-matlab)</p>
+
+<ul>
+<li>
+<em>\</em>.m*</li>
+</ul>
+</li>
+<li><p><strong>MediaWiki</strong></p></li>
+<li>
+<p><strong>Modelica</strong> (text/x-modelica)</p>
+
+<ul>
+<li><p><em>\</em>.mo*</p></li>
+<li><p><em>\</em>.mop*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>MXML</strong></p>
+
+<ul>
+<li>
+<em>\</em>.mxml*</li>
+</ul>
+</li>
+<li>
+<p><strong>Nemerle</strong> (text/x-nemerle)</p>
+
+<ul>
+<li>
+<em>\</em>.n*</li>
+</ul>
+</li>
+<li>
+<p><strong>NetRexx</strong> (text/x-netrexx)</p>
+
+<ul>
+<li>
+<em>\</em>.nrx*</li>
+</ul>
+</li>
+<li>
+<p><strong>NSIS</strong></p>
+
+<ul>
+<li><p><em>\</em>.nsi*</p></li>
+<li><p><em>\</em>.nsh*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>Objective-C</strong> (text/x-objcsrc)</p>
+
+<ul>
+<li>
+<em>\</em>.m*</li>
+</ul>
+</li>
+<li>
+<p><strong>Objective-J</strong> (text/x-objective-j)</p>
+
+<ul>
+<li>
+<em>\</em>.j*</li>
+</ul>
+</li>
+<li>
+<p><strong>OCaml</strong> (text/x-ocaml)</p>
+
+<ul>
+<li><p><em>\</em>.ml*</p></li>
+<li><p><em>\</em>.mli*</p></li>
+<li><p><em>\</em>.mll*</p></li>
+<li><p><em>\</em>.mly*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>OCL</strong> (text/x-ocl)</p>
+
+<ul>
+<li>
+<em>\</em>.ocl*</li>
+</ul>
+</li>
+<li>
+<p><strong>Octave</strong> (text/x-octave, text/x-matlab)</p>
+
+<ul>
+<li>
+<em>\</em>.m*</li>
+</ul>
+</li>
+<li>
+<p><strong>OOC</strong></p>
+
+<ul>
+<li>
+<em>\</em>.ooc*</li>
+</ul>
+</li>
+<li>
+<p><strong>Opal</strong></p>
+
+<ul>
+<li><p><em>\</em>.sign*</p></li>
+<li><p><em>\</em>.impl*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>OpenCL</strong></p>
+
+<ul>
+<li>
+<em>\</em>.cl*</li>
+</ul>
+</li>
+<li>
+<p><strong>OpenGL Shading Language</strong></p>
+
+<ul>
+<li><p><em>\</em>.glslv*</p></li>
+<li><p><em>\</em>.glslf*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>Pascal</strong> (text/x-pascal)</p>
+
+<ul>
+<li><p><em>\</em>.p*</p></li>
+<li><p><em>\</em>.pas*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>Perl</strong> (text/x-perl, application/x-perl)</p>
+
+<ul>
+<li><p><em>\</em>.pl*</p></li>
+<li><p><em>\</em>.pm*</p></li>
+<li><p><em>\</em>.al*</p></li>
+<li><p><em>\</em>.perl*</p></li>
+<li><p><em>\</em>.t*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>PHP</strong> (text/x-php, application/x-php, text/x-php-source, application/x-php-source)</p>
+
+<ul>
+<li><p><em>\</em>.php*</p></li>
+<li><p><em>\</em>.php3*</p></li>
+<li><p><em>\</em>.php4*</p></li>
+<li><p><em>\</em>.phtml*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>pkg-config</strong> (text/x-pkg-config)</p>
+
+<ul>
+<li>
+<em>\</em>.pc*</li>
+</ul>
+</li>
+<li>
+<p><strong>Prolog</strong> (text/x-prolog)</p>
+
+<ul>
+<li>
+<em>\</em>.prolog*</li>
+</ul>
+</li>
+<li>
+<p><strong>Protobuf</strong> (text/x-protobuf)</p>
+
+<ul>
+<li>
+<em>\</em>.proto*</li>
+</ul>
+</li>
+<li>
+<p><strong>Puppet</strong></p>
+
+<ul>
+<li>
+<em>\</em>.pp*</li>
+</ul>
+</li>
+<li>
+<p><strong>Python</strong> (text/x-python, application/x-python)</p>
+
+<ul>
+<li>
+<em>\</em>.py*</li>
+</ul>
+</li>
+<li>
+<p><strong>Python 3</strong></p>
+
+<ul>
+<li>
+<em>\</em>.py3*</li>
+</ul>
+</li>
+<li>
+<p><strong>R</strong> (text/x-R)</p>
+
+<ul>
+<li><p><em>\</em>.R*</p></li>
+<li><p><em>\</em>.Rout*</p></li>
+<li><p><em>\</em>.r*</p></li>
+<li><p><em>\</em>.Rhistory*</p></li>
+<li><p><em>\</em>.Rt*</p></li>
+<li><p><em>\</em>.Rout.save*</p></li>
+<li><p><em>\</em>.Rout.fail*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>RPM spec</strong> (text/x-rpm-spec)</p>
+
+<ul>
+<li>
+<em>\</em>.spec*</li>
+</ul>
+</li>
+<li>
+<p><strong>Ruby</strong> (application/x-ruby, text/x-ruby)</p>
+
+<ul>
+<li><p><em>\</em>.rb*</p></li>
+<li><p><em>\</em>.rake*</p></li>
+<li><p><em>Rakefile</em></p></li>
+<li><p><em>Capfile</em></p></li>
+<li><p><em>Gemfile</em></p></li>
+</ul>
+</li>
+<li>
+<p><strong>Scala</strong> (text/x-scala)</p>
+
+<ul>
+<li>
+<em>\</em>.scala*</li>
+</ul>
+</li>
+<li>
+<p><strong>Scheme</strong> (text/x-scheme)</p>
+
+<ul>
+<li>
+<em>\</em>.scm*</li>
+</ul>
+</li>
+<li>
+<p><strong>Scilab</strong></p>
+
+<ul>
+<li><p><em>\</em>.sce*</p></li>
+<li><p><em>\</em>.sci*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>sh</strong> (text/x-shellscript, application/x-shellscript, text/x-sh)</p>
+
+<ul>
+<li>
+<em>\</em>.sh*</li>
+</ul>
+</li>
+<li>
+<p><strong>SPARQL</strong> (application/sparql-query)</p>
+
+<ul>
+<li>
+<em>\</em>.rq*</li>
+</ul>
+</li>
+<li>
+<p><strong>SQL</strong> (text/x-sql)</p>
+
+<ul>
+<li>
+<em>\</em>.sql*</li>
+</ul>
+</li>
+<li>
+<p><strong>Standard ML</strong></p>
+
+<ul>
+<li><p><em>\</em>.sml*</p></li>
+<li><p><em>\</em>.sig*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>SystemVerilog</strong></p>
+
+<ul>
+<li><p><em>\</em>.sv*</p></li>
+<li><p><em>\</em>.svh*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>Tcl</strong> (text/x-tcl, application/x-tcl)</p>
+
+<ul>
+<li><p><em>\</em>.tcl*</p></li>
+<li><p><em>\</em>.tk*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>Texinfo</strong> (text/x-texinfo)</p>
+
+<ul>
+<li><p><em>\</em>.texi*</p></li>
+<li><p><em>\</em>.texinfo*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>txt2tags</strong></p>
+
+<ul>
+<li>
+<em>\</em>.t2t*</li>
+</ul>
+</li>
+<li>
+<p><strong>Vala</strong> (text/x-vala)</p>
+
+<ul>
+<li><p><em>\</em>.vala*</p></li>
+<li><p><em>\</em>.vapi*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>VB.NET</strong> (text/x-vbnet, text/x-vb)</p>
+
+<ul>
+<li>
+<em>\</em>.vb*</li>
+</ul>
+</li>
+<li>
+<p><strong>Verilog</strong> (text/x-verilog-src)</p>
+
+<ul>
+<li>
+<em>\</em>.v*</li>
+</ul>
+</li>
+<li>
+<p><strong>VHDL</strong> (text/x-vhdl)</p>
+
+<ul>
+<li>
+<em>\</em>.vhd*</li>
+</ul>
+</li>
+<li>
+<p><strong>XML</strong> (application/xml, text/xml)</p>
+
+<ul>
+<li><p><em>\</em>.xml*</p></li>
+<li><p><em>\</em>.xspf*</p></li>
+<li><p><em>\</em>.siv*</p></li>
+<li><p><em>\</em>.smil*</p></li>
+<li><p><em>\</em>.smi*</p></li>
+<li><p><em>\</em>.sml*</p></li>
+<li><p><em>\</em>.kino*</p></li>
+<li><p><em>\</em>.xul*</p></li>
+<li><p><em>\</em>.xbel*</p></li>
+<li><p><em>\</em>.abw*</p></li>
+<li><p><em>\</em>.zabw*</p></li>
+<li><p><em>\</em>.glade*</p></li>
+<li><p><em>\</em>.jnlp*</p></li>
+<li><p><em>\</em>.xhtml*</p></li>
+<li><p><em>\</em>.svg*</p></li>
+<li><p><em>\</em>.mml*</p></li>
+<li><p><em>\</em>.rdf*</p></li>
+<li><p><em>\</em>.rss*</p></li>
+<li><p><em>\</em>.wml*</p></li>
+<li><p><em>\</em>.xmi*</p></li>
+<li><p><em>\</em>.fo*</p></li>
+<li><p><em>\</em>.xslfo*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>XSLT</strong> (application/xslt+xml)</p>
+
+<ul>
+<li><p><em>\</em>.xslt*</p></li>
+<li><p><em>\</em>.xsl*</p></li>
+</ul>
+</li>
+<li>
+<p><strong>Yacc</strong> (text/x-yacc, text/x-bison)</p>
+
+<ul>
+<li><p><em>\</em>.y*</p></li>
+<li><p><em>\</em>.yacc*</p></li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Credits</h2>
+
+<pre><code>:Author: Eddie Brüggemann
+
+:Contact: &lt;mrcyberfighter@gmail.com&gt;
+
+:License: GPLv3.
+
+Thank's to my beloved mother, my family and to the doctors.
+
+Stay away from drugs: drugs destroy your brain and your life.
+</code></pre>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/mrcyberfighter/IT-Edit">It-edit</a> is maintained by <a href="https://github.com/mrcyberfighter">mrcyberfighter</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
