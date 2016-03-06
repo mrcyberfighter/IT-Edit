@@ -1,0 +1,174 @@
+**************
+NEW in it-edit
+**************
+
+Editor
+******
+
+   Now you can easily navigate into your open files by using the pop-
+   up menu or by clicking on the file tab.
+
+   Now you can reorder your open files as wanted by drag and drop the
+   files tabs.
+
+
+Terminals
+*********
+
+   Now you can add as many sidebar terminals as you want.
+
+   Now you can reorder your terminals as wanted by drag and drop the
+   terminals tabs.
+
+
+Files
+*****
+
+   1. Reload file.
+
+   2. file informations.
+
+
+Edition
+*******
+
+   1. Add find next and find previous shortcuts.
+
+   2. Replace and replace all shortcuts.
+
+   3. Switching using tabs immediatly by button or shortcut (Ctrl +
+      P).
+
+
+Actions
+*******
+
+   1. Add terminals to sidebar.
+
+   2. Switch to big terminal.
+
+      * either one big terminal or one big terminal divided into 4
+        terminals.
+
+
+Applications
+************
+
+   You can register useful GUI application to launch it directly from
+   the editor.
+
+   Per example: A GUI Diff tool, a GUI debugger interface, a smart
+   python interpreter, a calculator, a dictionnary, a color-picker,
+   and so soon...
+
+
+View
+****
+
+   * Show | hide big terminal.
+
+   * Show | hide sidebar.
+
+   * Show | hide the buttonbar.
+
+   * Toggle to fullscreen.
+
+
+Settings
+********
+
+
+Schemes
+=======
+
+   New schemes have been added:
+
+   * build
+
+   * emacs
+
+   * matrix
+
+   * slate
+
+   * turbo
+
+   * vsdark
+
+
+Configure program
+=================
+
+
+Editor settings
+---------------
+
+   You can choose to enable or to disable trailing space removing at
+   file saving.
+
+
+Terminals settings
+------------------
+
+  * Appearance
+
+    Now you can set a background image which will fill the entire
+    terminal or a texture repeating itself.
+
+  * Settings
+
+    * You can set the shell you want to use.
+
+    * You can define the starting directory from the terminals.
+
+    * You can define the select-by-word-char regex.
+
+    * You can choose to scrolling down on output and or by keystroke.
+
+    * You can set the Backspace and delete sequence to send to
+      terminal.
+
+
+Settings
+========
+
+   * Define the ratio main-interface and sidebar in form of a
+     floating-point value between 0.0-1.0,
+
+     representing the surface the sidebar will cover and so the width
+     of the sidebar terminals.
+
+   * Show | hide the sidebar terminals at start.
+
+   * Show | hide the big terminal at start.
+
+   * Choosing to divide the big terminal in 4.
+
+   * Toggle to fullscreen at start.
+
+   * Launch a command in the terminals at start.
+
+   * Set it-edit as your default editor or reset the settings.
+
+
+BUGFIX
+******
+
+   Now you can open and save following files without problems:
+
+   * Makefile.am
+
+   * GNUmakefile.am
+
+   * CMakeLists.txt
+
+   * *.cmake
+
+   * *.cmake.in
+
+   * *.ctest
+
+   * *.ctest.in
+
+   And all the others for which the program had bugging because the
+   bug is fixed now !

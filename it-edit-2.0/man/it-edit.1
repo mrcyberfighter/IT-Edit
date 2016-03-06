@@ -1,0 +1,203 @@
+.\" Man page generated from reStructuredText.
+.
+.TH "IT-EDIT" "1" "February 29, 2016" "2.0" "it-edit"
+.
+.nr rst2man-indent-level 0
+.
+.de1 rstReportMargin
+\\$1 \\n[an-margin]
+level \\n[rst2man-indent-level]
+level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
+-
+\\n[rst2man-indent0]
+\\n[rst2man-indent1]
+\\n[rst2man-indent2]
+..
+.de1 INDENT
+.\" .rstReportMargin pre:
+. RS \\$1
+. nr rst2man-indent\\n[rst2man-indent-level] \\n[an-margin]
+. nr rst2man-indent-level +1
+.\" .rstReportMargin post:
+..
+.de UNINDENT
+. RE
+.\" indent \\n[an-margin]
+.\" old: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.nr rst2man-indent-level -1
+.\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.in \\n[rst2man-indent\\n[rst2man-indent-level]]u
+..
+
+.SH NAME
+.sp
+\fBit\-edit\fP \- A programming \fBtext\-editor\fP including severals \fBterminals\fP for direct access to the \fBcommand line\fP by editing \fBprograms\fP\&.
+.SH SYNOPSIS
+.BR
+.sp
+it\-edit [FILES...]
+
+.SH DESCRIPTION
+.BR
+.sp
+\fBit\-edit\fP provide a text editor with \fBsyntax highlight\fP, \fBline numbering\fP and with the basics text editing functionalities:
+.INDENT 0.0
+.IP \(bu 2
+Cut, Copy and Paste.
+.IP \(bu 2
+Duplicate a line or the selected text.
+.IP \(bu 2
+Undo/Redo functionalities.
+.IP \(bu 2
+Search and replace functionalities.
+.IP \(bu 2
+Jump to the given line number.
+.IP \(bu 2
+Enable | Disable the use of tabs.
+.UNINDENT
+.sp
+And an files managing interface for:
+.INDENT 0.0
+.IP \(bu 2
+Open a new empty file.
+.IP \(bu 2
+Open the file you want.
+.IP \(bu 2
+Open an recent file.
+.IP \(bu 2
+Save the editor content.
+.IP \(bu 2
+Save the editor content as the filename you want.
+.IP \(bu 2
+Save all open files.
+.IP \(bu 2
+Reload file.
+.IP \(bu 2
+File informations.
+.UNINDENT
+.sp
+\fBit\-edit\fP provide \fBterminals in the same window as the editor\fP, as a sidebar, which can easily \fBshown\fP, \fBhidden\fP and \fBresized\fP\&.
+.sp
+You can \fBadd\fP and \fBremove\fP as many terminals as you want to the sidebar...
+.sp
+\fBit\-edit\fP provide a \fBbig terminal\fP occupying the full interface, \fBdividable\fP into \fB4 resizable terminals\fP, to which you can \fBeasy toggle\fP from the main window.
+.sp
+For executing commands like compilation, debugging, and so soon directly from the editor.
+.sp
+Else you can run any command in a toplevel terminal, which can be \fBresize\fP, \fBminimize\fP, \fBmaximize\fP and \fBclose\fP\&.
+
+.SH SHORTCUTS MEMO
+.INDENT 0.0
+.INDENT 3.5
+.BR
+.br
+.sp
+.nf
+.ft C
++====================+======================+==================+
+|    Shortcut        |    functionality     |    Mnemonic      |
++====================+======================+==================+
+| Ctrl + n           | New file             | n = new          |
++====================+======================+==================+
+| Ctrl + o           | Open file            | o = open         |
++====================+======================+==================+
+| Ctrl + s           | Save file            | s = save         |
++====================+======================+==================+
+| Ctrl + Maj + S     | Save all files       | S = Save         |
++====================+======================+==================+
+| Ctrl + r           | Reload file          | r = reload       |
++====================+======================+==================+
+| Ctrl + i           | File informations    | i = Informations |
++====================+======================+==================+
+| Ctrl + z           | Undo                 | None             |
++====================+======================+==================+
+| Ctrl + Maj + Z     | Redo                 | None             |
++====================+======================+==================+
+| Ctrl + f           | Search               | f = find         |
++====================+======================+==================+
+| Ctrl + Enter       | Replace              | none             |
++====================+======================+==================+
+| Ctrl + Maj + Enter | Replace all          | none             |
++====================+======================+==================+
+| Ctrl + +           | Next                 | none             |
++====================+======================+==================+
+| Ctrl + \-           | Previous             | none             |
++====================+======================+==================+
+| Ctrl + g           | Go to line number    | g = go to        |
++====================+======================+==================+
+| Ctrl + x           | Cut                  | None             |
++====================+======================+==================+
+| Ctrl + c           | Copy                 | c = copy         |
++====================+======================+==================+
+| Ctrl + v           | Paste                | None             |
++====================+======================+==================+
+| Ctrl + d           | Duplicate text       | d = duplicate    |
++====================+======================+==================+
+| Ctrl + p           | Use tabs             | none             |
++====================+======================+==================+
+| Ctrl + e           | Execute command      | e = execute      |
++====================+======================+==================+
+| Ctrl + b           | Show|Hide big term   | b = big term     |
++====================+======================+==================+
+| Ctrl + Maj + B     | big term switch      | B = Big term     |
++====================+======================+==================+
+| Ctrl + t           | Show | Hide terminal | t = terminal     |
++====================+======================+==================+
+| Ctrl + Maj + T     | Add new terminals    | T = Terminals    |
++====================+======================+==================+
+| Maj + Copy         | Copy from terminal   | none             |
++====================+======================+==================+
+| Maj + Insert       | Paste to terminal    | none             |
++====================+======================+==================+
+| Ctrl + h           | File handler         | h = handler      |
++====================+======================+==================+
+| Ctrl + a           | Application launcher | a = application  |
++====================+======================+==================+
+| Ctrl + q           | Quit application     | q = quit         |
++====================+======================+==================+
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+
+.SH WEBSITE
+.BR
+.sp
+\fBit\-edit\fP home page at:
+.sp
+<\fI\%http://www.open\-source\-projects.net/IT\-Edit/IT\-Edit_presentation.html\fP>
+
+.SH BUGS
+.BR
+.sp
+Report \fBit\-edit\fP bugs to <\fI\%mrcyberfighter@gmail.com\fP>
+.sp
+or <\fI\%https://github.com/mrcyberfighter/IT\-Edit\fP>.
+
+.SH AUTHOR
+.BR
+.sp
+Brüggemann Eddie <\fI\%mrcyberfighter@gmail.com\fP>
+
+.SH SEE ALSO
+.BR
+.sp
+The full documentation for \fBit\-edit\fP is maintained as a Texinfo  manual.
+.sp
+If the info and makeinfo programs are properly installed at your site,
+.sp
+the command:
+.sp
+\fBinfo it\-edit\fP
+.sp
+should give you access to the complete manual.
+
+.SH COPYRIGHT
+.BR
+.sp
+Copyright © 2016 Brüggemann Eddie. License  GPLv3:  GNU
+GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This  is  free  software:  you  are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+.\" Generated by docutils manpage writer.
+.

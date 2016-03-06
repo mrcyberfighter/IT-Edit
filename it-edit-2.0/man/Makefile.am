@@ -1,0 +1,1 @@
+dist_man_MANS = it-edit.1
