@@ -1000,7 +1000,7 @@ void rename_file(GtkWidget *widget, File_Editor *file_editor) {
 
 
 
-inline void toggle_mode_bit(GtkWidget *widget, File_Editor *file_editor) {
+static void toggle_mode_bit(GtkWidget *widget, File_Editor *file_editor) {
 
   #ifdef DEBUG
     DEBUG_FUNC_MARK
