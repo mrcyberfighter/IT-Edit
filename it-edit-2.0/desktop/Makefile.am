@@ -1,4 +1,4 @@
-desktopdir  = /usr/share/applications
+desktopdir = $(DESTDIR)/usr/share/applications
 
 
 desktop:
@@ -18,6 +18,7 @@ desktop:
 	@echo "desktop file generated at: $(desktopdir)/$(PACKAGE).desktop"
                     
 install-data-hook:
+	$(MKDIR_P) -m a+w "$(desktopdir)"
 	$(MAKE) desktop
 	$(MKDIR_P) -m a+w "$(DESTDIR)$(pkgdatadir)/Configuration"
 	$(CHMOD) a+w "$(DESTDIR)$(pkgdatadir)/Files_handler"
